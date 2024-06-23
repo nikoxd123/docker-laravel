@@ -38,9 +38,8 @@ services:
         target: /workspace
 
   db:
-    build:
-      context: .
-      dockerfile: ./infra/docker/mysql/Dockerfile
+    image: mariadb
+    restart: always
     ports:
       - target: 3306
         published: ${DB_PUBLISHED_PORT:-3306}
